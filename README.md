@@ -1,9 +1,9 @@
-# 🚀 BudgetBuddy $$
+(# 🚀 BudgetBuddy $$
 
 ## 👥 Collaborateurs
 
 * **[Ouaddi Salah eddine]** (@Salah-eddine-Ouaddi)
-* **[Hamdane Salaheddine]** 
+* **[Hamdane Salahdine]** (@salaheddinehamdane)
 
 ## 🎯 Objectif du Projet
 
