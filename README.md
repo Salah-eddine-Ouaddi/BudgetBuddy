@@ -3,7 +3,7 @@
 ## 👥 Collaborateurs
 
 * **[Ouaddi Salah eddine]** (@Salah-eddine-Ouaddi)
-* **[Hamdane Salahdine]** 
+* **[Hamdane Salaheddine]** 
 
 ## 🎯 Objectif du Projet
 
