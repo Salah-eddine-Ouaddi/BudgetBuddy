@@ -33,13 +33,13 @@ BudgetBuddy est pensé comme un **premier projet Python sérieux**, idéal pour 
 
 Les données sont stockées dans un fichier `income/expense.csv` avec la structure suivante :
 
-| Colonne       | Description                          |
-| ------------- | ------------------------------------ |
-| `type`        | `income` ou `expense`                |
-| `amount`      | Montant de la transaction            |
-| `category`    | Catégorie (ex: Food, Rent, Salary)   |
-| `date`        | Date au format `YYYY-MM-DD`          |
-| `description` | Nom ou description de la transaction |
+| Colonne       | Description                           |
+| ------------- | ------------------------------------  |
+| `type`        | `income` ou `expense`                 |
+| `amount`      | Montant de la transaction             | 
+| `category`    | Catégorie (ex: Food, Rent, Salary)    |
+| `date`        | Date au format `YYYY-MM-DD : HH-MM-SS`|
+| `description` | Nom ou description de la transaction  |
 
 ---
 
