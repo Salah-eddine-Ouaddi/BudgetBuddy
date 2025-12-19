@@ -23,16 +23,11 @@ BudgetBuddy est pensé comme un **premier projet Python sérieux**, idéal pour 
 
 ---
 
-## 👥 Collaborateurs
-
-* **[Ouaddi Salah eddine]** (@Salah-eddine-Ouaddi)
-* **[Hamdane Salahdine]** (@salaheddine)
----
-
 ### 1️⃣ Prérequis
 
 * Python **3.1+** installé sur votre machine
 
+---
 
 ## 🗂️ Structure du fichier CSV
 
@@ -46,7 +41,7 @@ Les données sont stockées dans un fichier `income/expense.csv` avec la structu
 | `date`        | Date au format `YYYY-MM-DD`          |
 | `description` | Nom ou description de la transaction |
 
-
+---
 
 ## 🛠️ Technologies utilisées
 
@@ -57,6 +52,12 @@ Les données sont stockées dans un fichier `income/expense.csv` avec la structu
   * `datetime` → gestion des dates
   * `os` → gestion des fichiers
 
+---
+
+## 👥 Collaborateurs
+
+* **[Ouaddi Salah eddine]** (@Salah-eddine-Ouaddi)
+* **[Hamdane Salahdine]** (@salaheddine)
 ---
 
 ## 🧭 Prochaine étapes:
