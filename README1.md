@@ -1,27 +1,72 @@
 # 💰 BudgetBuddy
 
-> **Prenez le contrôle de vos finances, directement depuis votre terminal.**
+> Une application **CLI (console)** simple et efficace pour suivre vos **revenus**, **dépenses** et votre **Budget/Balance** directement depuis le terminal.
 
-**PyBudget Manager** est une application CLI (Command Line Interface) légère et intuitive conçue pour aider les utilisateurs à suivre leurs finances personnelles sans complexité inutile. Pas de base de données lourde, pas de configuration complexe : juste du Python et un fichier CSV pour garder une trace de vos revenus et dépenses.
-
-C'est l'outil idéal pour ceux qui aiment la simplicité ou pour les débutants souhaitant comprendre comment fonctionne un gestionnaire de données en Python.
+BudgetBuddy est pensé comme un **premier projet Python sérieux**, idéal pour les **débutants** souhaitant pratiquer la manipulation de fichiers et les bonnes pratiques de structuration de code.
 
 ---
 
-## ✨ Fonctionnalités Principales
+## ✨ Fonctionnalités
 
-* 📈 **Gestion des Revenus** : Ajoutez facilement vos salaires, primes ou ventes.
-* 📉 **Suivi des Dépenses** : Notez vos achats quotidiens pour savoir où part votre argent.
-* 📝 **Détails Précis** : Chaque transaction inclut le montant, la catégorie (ex: Alimentation, Loyer), la date et une description.
-* 💾 **Sauvegarde Automatique** : Toutes vos données sont stockées localement dans un fichier `data.csv`. Rien n'est perdu !
-* ⚖️ **Calcul du Solde** : Visualisez votre solde total en temps réel.
+* ➕ Ajouter des **revenus (Incomes)**
+* ➖ Ajouter des **dépenses (Expenses)**
+* 📝 Saisir les détails de chaque transaction :
 
-## 🛠️ Technologies Utilisées
+  * Montant
+  * Catégorie
+  * Date
+  * Nom / description
+* 💾 **Sauvegarde automatique** des données dans un fichier CSV
+* 📂 **Lecture automatique** des données existantes au démarrage
+* 📊 Calcul du **solde total (Balance)** en temps réel
+* 🖥️ Interface simple et claire en ligne de commande (CLI)
 
-Ce projet est construit entièrement avec **Python 3** et ses bibliothèques standards, garantissant une exécution rapide et sans dépendances lourdes.
+---
 
-* **Langage** : Python 3.x
-* **Modules** :
-  * `csv` (Gestion de la base de données fichier)
-  * `datetime` (Gestion des dates)
-  * `os` (Vérification de l'existence des fichiers)
+## 👥 Collaborateurs
+
+* **[Ouaddi Salah eddine]** (@Salah-eddine-Ouaddi)
+* **[Hamdane Salahdine]** (@salaheddine)
+---
+
+### 1️⃣ Prérequis
+
+* Python **3.1+** installé sur votre machine
+
+
+## 🗂️ Structure du fichier CSV
+
+Les données sont stockées dans un fichier `income/expense.csv` avec la structure suivante :
+
+| Colonne       | Description                          |
+| ------------- | ------------------------------------ |
+| `type`        | `income` ou `expense`                |
+| `amount`      | Montant de la transaction            |
+| `category`    | Catégorie (ex: Food, Rent, Salary)   |
+| `date`        | Date au format `YYYY-MM-DD`          |
+| `description` | Nom ou description de la transaction |
+
+
+
+## 🛠️ Technologies utilisées
+
+* **Python 3**
+* Bibliothèques standards :
+
+  * `csv` → lecture et écriture des données
+  * `datetime` → gestion des dates
+  * `os` → gestion des fichiers
+
+---
+
+## 🧭 Prochaine étapes:
+
+* 📈 Visualisation des dépenses avec **Matplotlib**
+* 🖼️ Version **interface graphique (GUI)** avec Tkinter ou PyQt
+* 🏷️ Filtres par catégorie et par date
+* 📊 Statistiques mensuelles (dépenses moyennes, top catégories)
+* 💾 Export vers Excel (`.xlsx`)
+
+---
+
+N’hésitez pas à laisser une ⭐ si ce projet vous aide !
