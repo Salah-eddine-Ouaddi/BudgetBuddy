@@ -57,7 +57,7 @@ Les données sont stockées dans un fichier `income/expense.csv` avec la structu
 ## 👥 Collaborateurs
 
 * **[Ouaddi Salah eddine]** (@Salah-eddine-Ouaddi)
-* **[Hamdane Salahdine]** (@salaheddine)
+* **[Hamdane Salahdine]** (@salaheddine0407)
 ---
 
 ## 🧭 Prochaine étapes:
