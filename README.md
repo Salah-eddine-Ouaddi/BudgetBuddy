@@ -62,6 +62,8 @@ Les données sont stockées dans un fichier `income/expense.csv` avec la structu
 
 ## 🧭 Prochaine étapes:
 
+* ⛔ Ajout de la limitation de Budget
+* 📃 Ajout de fonctionnalité du rapport mensuel
 * 📈 Visualisation des dépenses avec **Matplotlib**
 * 🖼️ Version **interface graphique (GUI)** avec Tkinter ou PyQt
 * 🏷️ Filtres par catégorie et par date
