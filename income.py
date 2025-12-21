@@ -6,4 +6,4 @@ class Income :
         self.date = date
 
     def __repr__(self):
-        return f"<Income :(Name : {self.name}, Categorie: {self.categorie}, Amount: {self.amount}, Date: {self.date}> >"
+        return f"<Income: Name: {self.name}, Categorie: {self.categorie}, Amount: {self.amount}, Date: {self.date}>"

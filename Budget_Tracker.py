@@ -4,11 +4,12 @@ import calendar
 import datetime
 
 budget = 2000
-Transaction_Type = ["INCOME", "EXPENSE"]
 
 while True:
-    Choosing_Trasaction = input("Select your transaction INCOME/EXPENSE :")
-    if Choosing_Trasaction == "EXPENSE" :
+    Choosing_Transaction = input("Select your transaction INCOME/EXPENSE/EXIT :")
+    if Choosing_Transaction == "EXIT":
+        break
+    if Choosing_Transaction == "EXPENSE" :
         def main():
             print(f"🎯 Running Budget Tracker!")
             expense_file_path = "Budget_history.csv"
@@ -44,7 +45,7 @@ while True:
                 if selected_index in range(len(expense_categories)):
                     selected_category = expense_categories[selected_index]
                     new_expense = Expense(
-                        name=expense_name, categorie=selected_category, amount=expense_amount
+                        name=expense_name, categorie=selected_category, amount=expense_amount, date=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                     )
                     return new_expense
                 else:
@@ -54,7 +55,7 @@ while True:
         def save_expense_to_file(expense: Expense, expense_file_path):
             print(f"🎯 Saving User Expense: {expense} to {expense_file_path}")
             with open(expense_file_path, "a", encoding="utf-8") as f:
-                f.write(f"{expense.name},{expense.amount},{expense.categorie}\n")
+                f.write(f"{expense.name}, {expense.amount}, {expense.categorie}, {datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}\n")
         
         
         def summarize_expenses(expense_file_path, budget):
@@ -63,11 +64,14 @@ while True:
             with open(expense_file_path, "r", encoding="utf-8") as f:
                 lines = f.readlines()
                 for line in lines:
-                    expense_name, expense_amount, expense_category = line.strip().split(",")
+                    if line.strip().startswith("INCOME:"):
+                        continue
+                    expense_name, expense_amount, expense_category, expense_date = line.strip().split(",")
                     line_expense = Expense(
                         name=expense_name,
                         amount=float(expense_amount),
                         categorie=expense_category,
+                        date=expense_date,
                     )
                     expenses.append(line_expense)
         
@@ -81,7 +85,7 @@ while True:
         
             print("Expenses By Category 📈:")
             for key, amount in amount_by_category.items():
-                print(f"  {key}: ${amount:.2f}")
+                print(f" {key}: ${amount:.2f}")
         
             total_spent = sum([x.amount for x in expenses])
             print(f"💵 Total Spent: ${total_spent:.2f}")
@@ -105,7 +109,7 @@ while True:
         
         if __name__ == "__main__":
             main() 
-    elif Choosing_Trasaction == "INCOME" :
+    elif Choosing_Transaction == "INCOME" :
         
         def main():
             print(f"🎯 Running Income Tracker!")
@@ -127,7 +131,7 @@ while True:
             income_amount = float(input("Enter income amount: "))
             income_categories = [
                 "💰 selling",
-                "🏢 Bussiness",
+                "🏢 Business",
                 "💼 Work",
             ]
         
@@ -142,7 +146,7 @@ while True:
                 if selected_index in range(len(income_categories)):
                     selected_category = income_categories[selected_index]
                     new_income = Income(
-                        name=income_name, categorie=selected_category, amount=income_amount
+                        name=income_name, categorie=selected_category, amount=income_amount, date=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                     )
                     return new_income
                 else:
@@ -152,7 +156,7 @@ while True:
         def save_income_to_file(income: Income, income_file_path):
             print(f"🎯 Saving User Income: {income} to {income_file_path}")
             with open(income_file_path, "a", encoding="utf-8") as f:
-                f.write(f"{income.name}, {income.amount}, {income.categorie}\n")
+                f.write(f"INCOME: {income.name}, {income.amount}, {income.categorie}, {income.date}\n")
         
         
         def summarize_incomes(income_file_path, budget):
@@ -161,11 +165,15 @@ while True:
             with open(income_file_path, "r", encoding="utf-8") as f:
                 lines = f.readlines()
                 for line in lines:
-                    income_name, income_amount, income_category = line.strip().split(",")
+                    if not line.strip().startswith("INCOME:"):
+                        continue
+                    parts = line.strip()[8:].split(",")
+                    income_name, income_amount, income_category, income_date = parts
                     line_income = Income(
-                        name = income_name,
-                        amount = float(income_amount),
-                        categorie = income_category,
+                        name=income_name,
+                        amount=float(income_amount),
+                        categorie=income_category,
+                        date=income_date,
                     )
                     incomes.append(line_income)
         
