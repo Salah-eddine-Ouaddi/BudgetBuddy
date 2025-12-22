@@ -3,14 +3,46 @@ from income import Income
 import calendar
 import datetime
 
-budget = 2000
+def calculate_current_budget(initial_budget, file_path):
+    total_incomes = 0.0
+    total_expenses = 0.0
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+            for line in lines:
+                line = line.strip()
+                if line.startswith("INCOME:"):
+                    parts = line[8:].split(",")
+                    if len(parts) >= 2:
+                        try:
+                            amount = float(parts[1].strip())
+                            total_incomes += amount
+                        except ValueError:
+                            pass
+                else:
+                    parts = line.split(",")
+                    if len(parts) >= 2:
+                        try:
+                            amount = float(parts[1].strip())
+                            total_expenses += amount
+                        except ValueError:
+                            pass
+    except FileNotFoundError:
+        pass  # If file doesn't exist, totals remain 0
+    return initial_budget + total_incomes - total_expenses
+
+print("💰Welcom to BudgetBuddy💰")
+initial_budget = float(input("Enter your Budget💰 : "))
+budget = calculate_current_budget(initial_budget, "Budget_history.csv")
 
 while True:
     Choosing_Transaction = input("Select your transaction INCOME/EXPENSE/EXIT :")
     if Choosing_Transaction == "EXIT":
+        print("😊Thanks for using BudgetBuddy!😊")
         break
     if Choosing_Transaction == "EXPENSE" :
         def main():
+            global budget
             print(f"🎯 Running Budget Tracker!")
             expense_file_path = "Budget_history.csv"
         
@@ -18,7 +50,10 @@ while True:
             expense = get_user_expense()
             
             save_expense_to_file(expense, expense_file_path)
-        
+
+            global budget
+            budget -= expense.amount
+
             summarize_expenses(expense_file_path, budget)
         
         
@@ -89,8 +124,8 @@ while True:
         
             total_spent = sum([x.amount for x in expenses])
             print(f"💵 Total Spent: ${total_spent:.2f}")
-        
-            remaining_budget = budget - total_spent
+
+            remaining_budget = budget
         
             now = datetime.datetime.now()
             days_in_month = calendar.monthrange(now.year, now.month)[1]
@@ -101,7 +136,7 @@ while True:
                 print(f"✅ Budget Remaining: ${remaining_budget:.2f}")
                 print(green(f"👉 Budget Per Day: ${daily_budget:.2f}"))
             else:
-                print("Your Budget has run out!! 🆘")
+                print("🆘 Your Budget has run out!! 💸")
         
         
         def green(text):
@@ -112,6 +147,7 @@ while True:
     elif Choosing_Transaction == "INCOME" :
         
         def main():
+            global budget
             print(f"🎯 Running Income Tracker!")
             income_file_path = "Budget_history.csv"
         
@@ -120,7 +156,10 @@ while True:
         
             # Write their expense to a file.
             save_income_to_file(income, income_file_path)
-        
+
+            global budget
+            budget += income.amount
+
             # Read file and summarize expenses.
             summarize_incomes(income_file_path, budget)
         
@@ -191,15 +230,15 @@ while True:
         
             total_added = sum([x.amount for x in incomes])
             print(f"💵 Total Revenues: ${total_added:.2f}")
-        
-            new_budget = budget + total_added
-        
+
+            remaining_budget = budget
+
             now = datetime.datetime.now()
             days_in_month = calendar.monthrange(now.year, now.month)[1]
-            remaining_days = days_in_month - now.day     
-            daily_budget = new_budget / remaining_days
+            remaining_days = days_in_month - now.day
+            daily_budget = remaining_budget / remaining_days
             if daily_budget >= 0:
-                print(f"✅ Budget Remaining: ${new_budget:.2f}")
+                print(f"✅ Budget Remaining: ${remaining_budget:.2f}")
                 print(green(f"👉 Budget Per Day: ${daily_budget:.2f}"))
             else:
                 print("Your Budget has run out!! 🆘")
