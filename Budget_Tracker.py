@@ -90,7 +90,7 @@ while True:
         def save_expense_to_file(expense: Expense, expense_file_path):
             print(f"🎯 Saving User Expense: {expense} to {expense_file_path}")
             with open(expense_file_path, "a", encoding="utf-8") as f:
-                f.write(f"{expense.name}, {expense.amount}, {expense.categorie}, {datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}\n")
+                f.write(f"EXPENSE: {expense.name}, {expense.amount}, {expense.categorie}, {datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}\n")
         
         
         def summarize_expenses(expense_file_path, budget):
