@@ -25,7 +25,7 @@ BudgetBuddy is designed as a **serious first Python project**, ideal for **begin
 
 ### 1️⃣ Requirement
 
-* Python **3.1+** installed on your machine
+* Python **3.1** (or above) installed on your machine
 
 ---
 
